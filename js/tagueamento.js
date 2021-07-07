@@ -7,6 +7,8 @@
 
 const menuListaContato = document.querySelector(".menu-lista-contato")
 const menuListaDownload = document.querySelector(".menu-lista-download")
+const cardsMontadoras = document.querySelector(".cards-montadoras")
+const montadoras = [...cardsMontadoras.children]
 
 menuListaContato.addEventListener("click", function () {
     ga("send", "event", "menu", "entre_em_contato", "link_externo")
@@ -14,4 +16,11 @@ menuListaContato.addEventListener("click", function () {
 
 menuListaDownload.addEventListener("click", function () {
     ga("send", "event", "menu", "download_pdf", "download_pdf")
+})
+
+montadoras.forEach(function (montadora) {
+    $(montadora).click(function () {
+        const { name } = montadora.dataset
+        ga("send", "event", "analise", "ver_mais", name)
+    })
 })
