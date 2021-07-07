@@ -4,3 +4,9 @@
 // O ambiente dispõe da jQuery 3.5.1, então caso deseje, poderá utilizá-la
 // para fazer a sua coleta.
 // Caso tenha alguma dúvida sobre o case, não hesite em entrar em contato.
+
+const menuListContato = document.querySelector(".menu-lista-contato")
+
+menuListContato.addEventListener("click", function (event) {
+    ga("send", "event", "menu", "entre_em_contato", "link_externo")
+})
