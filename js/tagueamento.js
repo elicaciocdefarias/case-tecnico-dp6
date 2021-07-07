@@ -5,8 +5,13 @@
 // para fazer a sua coleta.
 // Caso tenha alguma dúvida sobre o case, não hesite em entrar em contato.
 
-const menuListContato = document.querySelector(".menu-lista-contato")
+const menuListaContato = document.querySelector(".menu-lista-contato")
+const menuListaDownload = document.querySelector(".menu-lista-download")
 
-menuListContato.addEventListener("click", function (event) {
+menuListaContato.addEventListener("click", function () {
     ga("send", "event", "menu", "entre_em_contato", "link_externo")
+})
+
+menuListaDownload.addEventListener("click", function () {
+    ga("send", "event", "menu", "download_pdf", "download_pdf")
 })
