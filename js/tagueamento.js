@@ -8,8 +8,24 @@
 const menuListaContato = document.querySelector(".menu-lista-contato")
 const menuListaDownload = document.querySelector(".menu-lista-download")
 const cardsMontadoras = document.querySelector(".cards-montadoras")
-const montadoras = [...cardsMontadoras.children]
+const form = document.querySelector(".contato")
+let montadoras = []
+let formElements = []
 
+try {
+    montadoras = [...cardsMontadoras.children]
+} catch (e) {
+
+}
+
+
+try {
+    formElements = [...form.elements]
+} catch (e) {
+
+}
+
+// events
 menuListaContato.addEventListener("click", function () {
     ga("send", "event", "menu", "entre_em_contato", "link_externo")
 })
@@ -23,4 +39,15 @@ montadoras.forEach(function (montadora) {
         const { name } = montadora.dataset
         ga("send", "event", "analise", "ver_mais", name)
     })
+})
+
+formElements.forEach(function (element) {
+    if (element.hasAttribute("id")) {
+        element.addEventListener("focusout", function () {
+            const id = element.getAttribute("id")
+            if (element.value) {
+                ga("send", "event", "contato", id, "preencheu")
+            }
+        })
+    }
 })
