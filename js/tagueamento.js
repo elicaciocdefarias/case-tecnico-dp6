@@ -23,22 +23,22 @@ const verMais = (montadora) => {
     })
 }
 
-const focusOut = () => {
+const focusOut = (element) => {
     const id = element.getAttribute("id")
     if (element.value) {
         ga("send", "event", "contato", id, "preencheu")
     }
 }
 
-const preencheForm = () => {
+const preencheForm = (element) => {
     if (element.hasAttribute("id")) {
-        element.addEventListener("focusout", () => focusOut)
+        element.addEventListener("focusout", () => focusOut(element))
     }
 }
 
 // events
-menuListaContato.addEventListener("click", () => entreEmContato)
-menuListaDownload.addEventListener("click", () => downloadPDF)
+menuListaContato.addEventListener("click", () => entreEmContato())
+menuListaDownload.addEventListener("click", () => downloadPDF())
 
 try {
     const montadoras = [...cardsMontadoras.children]
