@@ -18,7 +18,6 @@ try {
 
 }
 
-
 try {
     formElements = [...form.elements]
 } catch (e) {

@@ -60,7 +60,8 @@
     submit.attr('disabled', 'disabled');
     e.preventDefault();
     setTimeout(function () {
-      console.log('enviado');
+      // console.log('enviado');
+      ga("send", "event", "contato", "enviado", "enviado")
       lb.find('.lightbox-icon')
         .attr('src', 'img/logo-dp6-square.png')
         .attr('alt', 'Logo DP6');
@@ -75,7 +76,7 @@
 
   jQuery(
     '.menu-lista-' +
-      location.pathname.split('/').reverse()[0].replace('.html', '')
+    location.pathname.split('/').reverse()[0].replace('.html', '')
   )
     .parent()
     .removeClass('fechado');
